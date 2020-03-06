@@ -1,4 +1,32 @@
-# Salesforce App
+# Segment Salesforce Event Source
+
+This is a simple Salesforce CLI project that shows how you can send events to the Segment HTTP API from within a Salesforce org. 
+
+First, setup a Segment [HTTP API source](https://segment.com/docs/connections/sources/catalog/libraries/server/http/)
+
+### Example of calling .track()
+```
+SegmentTrackEvent evt = new SegmentTrackEvent();
+evt.userId = '019mr8mf4r';
+evt.event = 'Item Purchased';
+evt.addCustomProperty('name', 'Leap to Conclusions Mat');
+evt.addCustomProperty('revenue', '14.99');
+        
+SegmentContext context = new SegmentContext();
+context.ip = '24.5.68.47';
+
+evt.timestamp = DateTime.now();
+
+SegmentUtil util = new SegmentUtil('<YOUR SEGMENT WRITE KEY');
+util.track(evt); 
+```
+Use cases need to be further developed..... 
+
+
+
+
+ -----------
+## Salesforce App
 
 This guide helps Salesforce developers who are new to Visual Studio Code go from zero to a deployed app using Salesforce Extensions for VS Code and Salesforce CLI.
 
