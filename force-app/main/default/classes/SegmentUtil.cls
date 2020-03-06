@@ -12,17 +12,14 @@ public with sharing class SegmentUtil {
     }
 
     public boolean identify(SegmentIdentifyEvent evt){
-        System.debug(LoggingLevel.INFO, JSON.serializePretty(evt, true));
         return post(SegmentAPIMethod.IDENTIFY, JSON.serialize(evt, true));
     }
 
     public boolean page(SegmentPageEvent evt) {
-        System.debug(LoggingLevel.INFO, JSON.serializePretty(evt, true));
         return post(SegmentAPIMethod.PAGE, JSON.serialize(evt,true));
     }
 
     public boolean track(SegmentTrackEvent evt) {
-        System.debug(LoggingLevel.INFO, JSON.serializePretty(evt, true));
         return post(SegmentAPIMethod.TRACK, JSON.serialize(evt,true));
     }
 
